@@ -1,10 +1,10 @@
-function evaluateQuestion(page) {
+function evaluateQuestion(answer, page) {
     if (location.search.substring(1).includes("")) {
         var points = 0;
     } else {
         var points = location.search.substring(1);
     }
-    var radios = document.getElementsByName('antwort');
+    var radios = document.getElementsByName('antwort' + answer);
     for (var i = 0, length = radios.length; i < length; i++) {
         if (radios[i].checked) {
             if (radios[i].value == 1) {
@@ -16,9 +16,9 @@ function evaluateQuestion(page) {
     window.open(nextPage, '_self')
 }
 
-function evaluateFinal() {
+function evaluateFinal(answer) {
     var points = eval(location.search.substring(1));
-    var radios = document.getElementsByName('antwort');
+    var radios = document.getElementsByName('antwort' + answer);
     for (var i = 0, length = radios.length; i < length; i++) {
         if (radios[i].checked) {
             if (radios[i].value == 1) {
