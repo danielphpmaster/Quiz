@@ -4,28 +4,38 @@
     <title>Quiz</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
-    <script src="scripts.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Russo+One&display=swap" rel="stylesheet">    <script src="scripts.js"></script>
 </head>
 
 
 <body>
+<div class="wrapper">
+    <div class="head">
+        <h1> Quiz </h1>
 
-<h1> Quiz </h1>
-This is an example for a small quiz game, consisting of five questions:
-<!--  Questions taken from http://www.testedich.de/quizerstellungneu/dasquiztd.php3?testid=999895847 -->
+        <p>This Quiz was developed by 6 highly skilled minecraft players.</p>
+        <p>This Quiz features questions about your general knowledge.</p>
+        <p>Try to beat ur friends and prove that you are better than them in any way.</p>
 
-<h2> 1. Question </h2>
-What is the name of the capital of Switzerland? <br>
-<form name="question1">
-    <INPUT TYPE="RADIO" NAME="antwort10" VALUE="0"> Genf <br>
-    <INPUT TYPE="RADIO" NAME="antwort10" VALUE="0"> Z&uumlrich <br>
-    <INPUT TYPE="RADIO" NAME="antwort10" VALUE="0"> Basel <br>
-    <INPUT TYPE="RADIO" NAME="antwort10" VALUE="0"> Luzern <br>
-    <INPUT TYPE="RADIO" NAME="antwort10" VALUE="1"> Bern <br>
-    </B>
-    <input type="button" VALUE="next"
-           onclick="evaluateQuestion(10, 2);">
-</form>
+        <!--  Questions taken from http://www.testedich.de/quizerstellungneu/dasquiztd.php3?testid=999895847 -->
+    </div>
+    <div class="quiz">
+        <h2> 1. Question </h2>
+        <p>What is the name of the capital of Switzerland?</p> <br>
+        <form name="question1">
+            <INPUT TYPE="RADIO" NAME="antwort10" VALUE="0"> Genf <br>
+            <INPUT TYPE="RADIO" NAME="antwort10" VALUE="0"> Z&uumlrich <br>
+            <INPUT TYPE="RADIO" NAME="antwort10" VALUE="0"> Basel <br>
+            <INPUT TYPE="RADIO" NAME="antwort10" VALUE="0"> Luzern <br>
+            <INPUT TYPE="RADIO" NAME="antwort10" VALUE="1"> Bern <br>
+            </B>
+            <input id="button" type="button" VALUE="next"
+                   onclick="evaluateQuestion(10, 2);">
+
+        </form>
+    </div>
+</div>
 </body>
 
 </html>

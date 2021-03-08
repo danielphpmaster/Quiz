@@ -1,10 +1,59 @@
 * {
-
-    //Test1223
     margin: 0;
     padding: 0;
 }
 
-h1 {
-
+body {
+    background-color: #EEEEEE;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #333;
 }
+
+div.wrapper {
+    margin: auto;
+    padding: 100px;
+    max-width: 600px;
+    background-color: aqua;
+}
+
+h1 {
+    font-family: 'Russo One', sans-serif;
+    font-weight: normal;
+    font-size: 48px;
+    margin-bottom: 15px;
+    border-bottom: 3px solid white;
+    text-align: center;
+}
+
+h2 {
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 16px;
+    border-bottom: 3px solid #007abf;
+    text-align: center;
+    font-family: 'Russo One', sans-serif;
+}
+
+div.head > p {
+    text-align: center;
+    background-color: white;
+}
+
+div.quiz > p {
+    text-align: center;
+    font-weight: bold;
+}
+
+#button {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: #007abf;
+    padding: 10px;
+    border: 0;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+}
+
