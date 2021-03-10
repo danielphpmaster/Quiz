@@ -9,12 +9,12 @@ body {
     background-color: #EEEEEE;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    color: #333;
+    color: #007abf;
 }
 
 div.wrapper {
     margin: auto;
-    padding: 100px;
+    padding: 100px 100px 50px 100px;
     max-width: 600px;
     background-color: aqua;
 }
@@ -23,28 +23,16 @@ h1 {
     font-family: 'Russo One', sans-serif;
     font-weight: normal;
     font-size: 48px;
-    margin-bottom: 15px;
+    margin-bottom: 60px;
     border-bottom: 3px solid white;
     text-align: center;
 }
 
 h2 {
     font-weight: normal;
-    margin-top: 10px;
-    margin-bottom: 16px;
-    border-bottom: 3px solid #007abf;
+    margin-bottom: 35px;
     text-align: center;
     font-family: 'Russo One', sans-serif;
-}
-
-div.head > p {
-    text-align: center;
-    background-color: white;
-}
-
-div.quiz > p {
-    text-align: center;
-    font-weight: bold;
 }
 
 #button {
@@ -57,5 +45,35 @@ div.quiz > p {
     border-radius: 10px;
     display: block;
     margin: auto;
+    margin-bottom: 80px;
 }
 
+input {
+    display:none
+}
+
+input[type=radio]:checked+label {
+    background-color: #007abf;
+    color:white;
+    border-color: #007abf;
+}
+
+label {
+    display:block;
+    padding: 20px;
+    border: 3px solid white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.grid-container {
+    margin-bottom: 35px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+}
+
+.foot > p {
+    text-align: center;
+}

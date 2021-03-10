@@ -17,18 +17,26 @@
 
     </div>
     <div class="quiz">
-        <h2>Question </h2>
-        <p id="question"></p>
-        <form action="index.html">
+        <h2 id="question"></h2>
+         <form action="index.html">
             <input type="hidden" id="questN" name="questN" value="">
             <input type="hidden" id="points" name="points" value="">
-            <input TYPE="RADIO" NAME="antwort" VALUE="0"><span id="a1"></span><br>
-            <input TYPE="RADIO" NAME="antwort" VALUE="1"><span id="a2"></span><br>
-            <input TYPE="RADIO" NAME="antwort" VALUE="2"><span id="a3"></span><br>
-            <input TYPE="RADIO" NAME="antwort" VALUE="3"><span id="a4"></span><br>
+            <div class="grid-container">
+                <input id="i1" type="radio" name="antwort" value="0">
+                <label class="grid-child" id="a1" for="i1"></label>
+                <input id="i2" type="radio" name="antwort" value="1">
+                <label class="grid-child" id="a2" for="i2"></label>
+                <input id="i3" type="radio" name="antwort" value="2">
+                <label class="grid-child" id="a3" for="i3"></label>
+                <input id="i4" type="radio" name="antwort" value="3">
+                <label class="grid-child" id="a4" for="i4"></label>
+            </div>
             <input id="button" type="submit" VALUE="next">
 
         </form>
+    </div>
+    <div class="foot">
+        <p>©Copyright HES:SO Sven, Jonathan, Daniel, Kazushi, Raffael, Robert</p>
     </div>
 </div>
 </body>
