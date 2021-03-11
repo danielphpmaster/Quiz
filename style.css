@@ -2,6 +2,7 @@
     --bg-color: black;
     --font-color: black;
     --main-color: #007abf;
+    --button-disabled-color: #333333;
 }
 
 * {
@@ -50,6 +51,10 @@ p {
     justify-content: center;
 }
 
+button:disabled, button[disabled] {
+    background-color: var(--button-disabled-color) !important;
+    cursor: default !important;
+}
 #button {
     color: var(--font-color);
     font-weight: bold;

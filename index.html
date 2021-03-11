@@ -19,21 +19,21 @@
         <h2 id="question"></h2>
         <div class="grid-container">
             <input id="i1" type="radio" name="antwort" value="0">
-            <label class="grid-child" id="a1" for="i1"></label>
+            <label onclick="enableButton()" class="grid-child" id="a1" for="i1"></label>
             <input id="i2" type="radio" name="antwort" value="1">
-            <label class="grid-child" id="a2" for="i2"></label>
+            <label onclick="enableButton()" class="grid-child" id="a2" for="i2"></label>
             <input id="i3" type="radio" name="antwort" value="2">
-            <label class="grid-child" id="a3" for="i3"></label>
+            <label onclick="enableButton()" class="grid-child" id="a3" for="i3"></label>
             <input id="i4" type="radio" name="antwort" value="3">
-            <label class="grid-child" id="a4" for="i4"></label>
+            <label onclick="enableButton()" class="grid-child" id="a4" for="i4"></label>
         </div>
         <div class="nextButton">
-            <span id="button" onClick="calculatePoints()">Next</span>
+            <button id="button" onClick="calculatePoints()">Next</button>
         </div>
 
     </div>
     <div class="foot">
-        <p>© copyright Sven, Jonathan, Daniel, Kazushi, Raffael, Robert</p>
+        <p>© Copyright Sven, Jonathan, Daniel, Kazushi, Raffael, Robert</p>
         <p style="cursor: pointer; font-weight: bold;" onClick="toggleDarkMode()">toggle dark mode</p>
     </div>
 </div>

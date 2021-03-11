@@ -153,6 +153,8 @@ let points = 0;
 let selectedAnswer;
 
 function fillQuestions() {
+    document.getElementById("button").disabled = true;
+
     questNumber = Math.floor(Math.random() * length);
 
     document.getElementById("question").innerHTML = questions[questNumber].question;
@@ -160,6 +162,10 @@ function fillQuestions() {
     document.getElementById("a2").innerHTML = questions[questNumber].answers[1];
     document.getElementById("a3").innerHTML = questions[questNumber].answers[2];
     document.getElementById("a4").innerHTML = questions[questNumber].answers[3];
+}
+
+function enableButton() {
+    document.getElementById("button").disabled = false;
 }
 
 function calculatePoints() {
@@ -172,7 +178,6 @@ function calculatePoints() {
             break;
         }
     }
-
     if (selectedAnswer == questions[questNumber].correctIndex) points++;
 
     document.getElementById("score").innerHTML = points;
