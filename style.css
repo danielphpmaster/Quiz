@@ -1,6 +1,7 @@
 :root {
     --bg-color: black;
     --font-color: black;
+    --main-color: #007abf;
 }
 
 * {
@@ -14,7 +15,7 @@ body {
     background-color: var(--bg-color);
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    color: #007abf;
+    color: var(--main-color);
 }
 
 div.wrapper {
@@ -28,7 +29,7 @@ h1 {
     font-weight: normal;
     font-size: 48px;
     margin-bottom: 50px;
-    border-bottom: 3px solid #007abf;
+    border-bottom: 3px solid var(--main-color);
     text-align: center;
 }
 
@@ -53,7 +54,7 @@ p {
     color: var(--font-color);
     font-weight: bold;
     font-size: 18px;
-    background-color: #007abf;
+    background-color: var(--main-color);
     padding: 10px;
     border: 0;
     border-radius: 10px;
@@ -68,7 +69,7 @@ input {
 label {
     display: block;
     padding: 20px;
-    border: 3px solid #007abf;
+    border: 3px solid var(--main-color);
     font-weight: bold;
     text-align: center;
     border-radius: 20px;
@@ -76,9 +77,9 @@ label {
 }
 
 input[type=radio]:checked + label {
-    background-color: #007abf;
+    background-color: var(--main-color);
     color: var(--font-color);
-    border-color: #007abf;
+    border-color: var(--main-color);
 }
 
 .grid-container {
