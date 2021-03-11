@@ -9,34 +9,32 @@
     <script src="scripts.js"></script>
 </head>
 
-
-<body onload="fillQuestions(); calculatePoints()">
+<body onload="fillQuestions()">
 <div class="wrapper">
     <div class="head">
         <h1> Quiz </h1>
-
+        <p>Current score: <span id="score">0</span></p>
     </div>
     <div class="quiz">
         <h2 id="question"></h2>
-         <form action="index.html">
-            <input type="hidden" id="questN" name="questN" value="">
-            <input type="hidden" id="points" name="points" value="">
-            <div class="grid-container">
-                <input id="i1" type="radio" name="antwort" value="0">
-                <label class="grid-child" id="a1" for="i1"></label>
-                <input id="i2" type="radio" name="antwort" value="1">
-                <label class="grid-child" id="a2" for="i2"></label>
-                <input id="i3" type="radio" name="antwort" value="2">
-                <label class="grid-child" id="a3" for="i3"></label>
-                <input id="i4" type="radio" name="antwort" value="3">
-                <label class="grid-child" id="a4" for="i4"></label>
-            </div>
-            <input id="button" type="submit" VALUE="next">
+        <div class="grid-container">
+            <input id="i1" type="radio" name="antwort" value="0">
+            <label class="grid-child" id="a1" for="i1"></label>
+            <input id="i2" type="radio" name="antwort" value="1">
+            <label class="grid-child" id="a2" for="i2"></label>
+            <input id="i3" type="radio" name="antwort" value="2">
+            <label class="grid-child" id="a3" for="i3"></label>
+            <input id="i4" type="radio" name="antwort" value="3">
+            <label class="grid-child" id="a4" for="i4"></label>
+        </div>
+        <div class="nextButton">
+            <span id="button" onClick="calculatePoints()">Next</span>
+        </div>
 
-        </form>
     </div>
     <div class="foot">
-        <p>©Copyright HES:SO Sven, Jonathan, Daniel, Kazushi, Raffael, Robert</p>
+        <p>© copyright Sven, Jonathan, Daniel, Kazushi, Raffael, Robert</p>
+        <p style="cursor: pointer; font-weight: bold;" onClick="toggleDarkMode()">toggle dark mode</p>
     </div>
 </div>
 </body>

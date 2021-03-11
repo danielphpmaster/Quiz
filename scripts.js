@@ -1,4 +1,27 @@
-let points = getUrlVars()["points"] != {} ? getUrlVars()["points"] : 0
+function toggleDarkMode() {
+    let darkMode = localStorage.getItem('darkMode');
+
+    if (darkMode == 'true') {
+        localStorage.setItem("darkMode", "false");
+    } else {
+        localStorage.setItem("darkMode", "true");
+    }
+
+    setColors();
+}
+
+function setColors() {
+    let root = document.documentElement;
+    let darkMode = localStorage.getItem('darkMode');
+
+    if (darkMode == 'true') {
+        root.style.setProperty('--bg-color', "black");
+        root.style.setProperty('--font-color', "black");
+    } else {
+        root.style.setProperty('--bg-color', "#EEEEEE");
+        root.style.setProperty('--font-color', "white");
+    }
+}
 
 const questions =
     [
@@ -124,76 +147,41 @@ const questions =
         }
     ]
 
-const length = questions.length
-
-function evaluateQuestion(answer, page) {
-
-    if (location.search.substring(1).includes("")) {
-        var points = 0;
-    } else {
-        var points = location.search.substring(1);
-    }
-    var radios = document.getElementsByName('antwort' + answer);
-    for (var i = 0, length = radios.length; i < length; i++) {
-        if (radios[i].checked) {
-            if (radios[i].value == 1) {
-                points++;
-            }
-        }
-    }
-    var nextPage = './q' + page + '.html?p=' + points
-    location.reload();
-}
-
-function evaluateFinal(answer) {
-    var points = eval(location.search.substring(1));
-    var radios = document.getElementsByName('antwort' + answer);
-    for (var i = 0, length = radios.length; i < length; i++) {
-        if (radios[i].checked) {
-            if (radios[i].value == 1) {
-                points++;
-            }
-        }
-    }
-
-    document.write("You have answered " + points + ' questions correctly!');
-}
-
+const length = questions.length;
+let questNumber;
+let points = 0;
+let selectedAnswer;
 
 function fillQuestions() {
+    questNumber = Math.floor(Math.random() * length);
 
-
-
-    var questN = Math.floor(Math.random()*length);
-
-
-
-    document.getElementById("questN").value = questN;
-    document.getElementById("question").innerHTML = questions[questN].question;
-    document.getElementById("a1").innerHTML = questions[questN].answers[0];
-    document.getElementById("a2").innerHTML = questions[questN].answers[1];
-    document.getElementById("a3").innerHTML = questions[questN].answers[2];
-    document.getElementById("a4").innerHTML = questions[questN].answers[3];
-
+    document.getElementById("question").innerHTML = questions[questNumber].question;
+    document.getElementById("a1").innerHTML = questions[questNumber].answers[0];
+    document.getElementById("a2").innerHTML = questions[questNumber].answers[1];
+    document.getElementById("a3").innerHTML = questions[questNumber].answers[2];
+    document.getElementById("a4").innerHTML = questions[questNumber].answers[3];
 }
 
 function calculatePoints() {
+    var radios = document.getElementsByName('antwort');
 
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if (radios[i].checked) {
+            selectedAnswer = i;
+            radios[i].checked = false;
+            break;
+        }
+    }
 
-    var questN2 = getUrlVars()["questN"]
-    var answer = getUrlVars()["antwort"]
-    var points = getUrlVars()["points"] != {} ? getUrlVars()["points"] : 0
+    if (selectedAnswer == questions[questNumber].correctIndex) points++;
 
-
-    if (answer == questions[questN2].correctIndex) points++;
-
-    document.getElementById("points").value = points;
-
+    document.getElementById("score").innerHTML = points;
+    fillQuestions();
 }
 
 function getUrlVars() {
     var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
         vars[key] = value;
     });
     return vars;

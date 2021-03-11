@@ -1,3 +1,8 @@
+:root {
+    --bg-color: black;
+    --font-color: black;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +11,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #EEEEEE;
+    background-color: var(--bg-color);
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     color: #007abf;
@@ -16,15 +21,14 @@ div.wrapper {
     margin: auto;
     padding: 100px 100px 50px 100px;
     max-width: 600px;
-    background-color: aqua;
 }
 
 h1 {
     font-family: 'Russo One', sans-serif;
     font-weight: normal;
     font-size: 48px;
-    margin-bottom: 60px;
-    border-bottom: 3px solid white;
+    margin-bottom: 50px;
+    border-bottom: 3px solid #007abf;
     text-align: center;
 }
 
@@ -35,36 +39,46 @@ h2 {
     font-family: 'Russo One', sans-serif;
 }
 
+p {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.nextButton {
+    display: flex;
+    justify-content: center;
+}
+
 #button {
-    color: white;
+    color: var(--font-color);
     font-weight: bold;
     font-size: 18px;
     background-color: #007abf;
     padding: 10px;
     border: 0;
     border-radius: 10px;
-    display: block;
-    margin: auto;
     margin-bottom: 80px;
+    cursor: pointer;
 }
 
 input {
-    display:none
-}
-
-input[type=radio]:checked+label {
-    background-color: #007abf;
-    color:white;
-    border-color: #007abf;
+    display: none
 }
 
 label {
-    display:block;
+    display: block;
     padding: 20px;
-    border: 3px solid white;
+    border: 3px solid #007abf;
     font-weight: bold;
     text-align: center;
     border-radius: 20px;
+    cursor: pointer;
+}
+
+input[type=radio]:checked + label {
+    background-color: #007abf;
+    color: var(--font-color);
+    border-color: #007abf;
 }
 
 .grid-container {
