@@ -178,16 +178,10 @@ function calculatePoints() {
             break;
         }
     }
-    if (selectedAnswer == questions[questNumber].correctIndex) points++;
+    if (selectedAnswer == questions[questNumber].correctIndex) {
+        points++;
+        document.getElementById("score").innerHTML = points;
+    }
 
-    document.getElementById("score").innerHTML = points;
     fillQuestions();
-}
-
-function getUrlVars() {
-    var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
-        vars[key] = value;
-    });
-    return vars;
 }

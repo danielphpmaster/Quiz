@@ -55,6 +55,7 @@ button:disabled, button[disabled] {
     background-color: var(--button-disabled-color) !important;
     cursor: default !important;
 }
+
 #button {
     color: var(--font-color);
     font-weight: bold;
