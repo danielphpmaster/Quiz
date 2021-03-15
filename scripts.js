@@ -185,3 +185,12 @@ function calculatePoints() {
 
     fillQuestions();
 }
+
+function timer() {
+    setTimeout(timedOut(), 50000);
+}
+
+function timedOut() {
+    alert("Time is over!");
+    // insert game over method or finished screen
+}
