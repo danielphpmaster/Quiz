@@ -13,10 +13,15 @@
 <div class="wrapper">
     <div class="head">
         <h1>Quiz</h1>
-        <p>Current score: <span id="score">0</span></p>
     </div>
-    <div class="quiz">
+    <div id="quiz">
+        <p>Current score: <span id="score">0</span></p>
         <h2 id="question"></h2>
+
+        <div class="round-time-bar" style="--duration: 5;">
+            <div></div>
+        </div>
+
         <div class="grid-container">
             <input id="i1" type="radio" name="antwort" value="0">
             <label onclick="enableButton()" class="grid-child" id="a1" for="i1"></label>
@@ -27,10 +32,9 @@
             <input id="i4" type="radio" name="antwort" value="3">
             <label onclick="enableButton()" class="grid-child" id="a4" for="i4"></label>
         </div>
-        <div class="nextButton">
+        <div class="buttonContainer">
             <button id="button" onClick="calculatePoints()">Next</button>
         </div>
-
     </div>
     <div class="foot">
         <p>© Copyright Sven, Jonathan, Daniel, Kazushi, Raffael, Robert</p>

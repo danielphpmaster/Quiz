@@ -1,28 +1,3 @@
-function toggleDarkMode() {
-    let darkMode = localStorage.getItem('darkMode');
-
-    if (darkMode == 'true') {
-        localStorage.setItem("darkMode", "false");
-    } else {
-        localStorage.setItem("darkMode", "true");
-    }
-
-    setColors();
-}
-
-function setColors() {
-    let root = document.documentElement;
-    let darkMode = localStorage.getItem('darkMode');
-
-    if (darkMode == 'true') {
-        root.style.setProperty('--bg-color', "black");
-        root.style.setProperty('--font-color', "black");
-    } else {
-        root.style.setProperty('--bg-color', "#EEEEEE");
-        root.style.setProperty('--font-color', "white");
-    }
-}
-
 const questions =
     [
         {
@@ -146,23 +121,11 @@ const questions =
             "correctIndex": 1
         }
     ]
-
 const length = questions.length;
-let questNumber;
+let questNumber = -1;
 let points = 0;
 let selectedAnswer;
-
-function fillQuestions() {
-    document.getElementById("button").disabled = true;
-
-    questNumber = Math.floor(Math.random() * length);
-
-    document.getElementById("question").innerHTML = questions[questNumber].question;
-    document.getElementById("a1").innerHTML = questions[questNumber].answers[0];
-    document.getElementById("a2").innerHTML = questions[questNumber].answers[1];
-    document.getElementById("a3").innerHTML = questions[questNumber].answers[2];
-    document.getElementById("a4").innerHTML = questions[questNumber].answers[3];
-}
+var timeOut;
 
 function enableButton() {
     document.getElementById("button").disabled = false;
@@ -170,6 +133,8 @@ function enableButton() {
 
 function calculatePoints() {
     var radios = document.getElementsByName('antwort');
+
+    clearTimeout(timeOut);
 
     for (var i = 0, length = radios.length; i < length; i++) {
         if (radios[i].checked) {
@@ -184,13 +149,68 @@ function calculatePoints() {
     }
 
     fillQuestions();
+    timeBar();
 }
 
+function fillQuestions() {
+    document.getElementById("button").disabled = true;
+
+    questNumber++; // Math.floor(Math.random() * length);
+
+    if (questNumber < questions.length) {
+        document.getElementById("question").innerHTML = questions[questNumber].question;
+        document.getElementById("a1").innerHTML = questions[questNumber].answers[0];
+        document.getElementById("a2").innerHTML = questions[questNumber].answers[1];
+        document.getElementById("a3").innerHTML = questions[questNumber].answers[2];
+        document.getElementById("a4").innerHTML = questions[questNumber].answers[3];
+
+        timer();
+    } else {
+        endScreen("Finished!");
+    }
+}
+
+// Source: https://css-tricks.com/timer-bars-in-css-with-custom-properties/
+function timeBar() {
+    const bars = document.querySelectorAll(".round-time-bar");
+    bars.forEach((bar) => {
+        bar.classList.remove("round-time-bar");
+        bar.offsetWidth;
+        bar.classList.add("round-time-bar");
+    });
+}
 function timer() {
-    setTimeout(timedOut(), 50000);
+    timeOut = setTimeout(function () {
+        endScreen("Time is over!")
+    }, 5000);
 }
 
-function timedOut() {
-    alert("Time is over!");
-    // insert game over method or finished screen
+function endScreen(message) {
+    document.getElementById("question").innerHTML = "Game over!";
+    document.getElementById("quiz").innerHTML = "<h2>" + message + "</h2><p>You achieved " + points + " point(s).</p><div class='buttonContainer'</div><button id='button' onclick='window.location.reload();'>Play again</button>";
+}
+
+function toggleDarkMode() {
+    let darkMode = localStorage.getItem('darkMode');
+
+    if (darkMode == 'true') {
+        localStorage.setItem("darkMode", "false");
+    } else {
+        localStorage.setItem("darkMode", "true");
+    }
+
+    setColors();
+}
+
+function setColors() {
+    let root = document.documentElement;
+    let darkMode = localStorage.getItem('darkMode');
+
+    if (darkMode == 'true') {
+        root.style.setProperty('--bg-color', "black");
+        root.style.setProperty('--font-color', "black");
+    } else {
+        root.style.setProperty('--bg-color', "#EEEEEE");
+        root.style.setProperty('--font-color', "white");
+    }
 }

@@ -19,7 +19,7 @@ body {
     color: var(--main-color);
 }
 
-div.wrapper {
+.wrapper {
     margin: auto;
     padding: 100px 100px 50px 100px;
     max-width: 600px;
@@ -46,32 +46,43 @@ p {
     margin-bottom: 15px;
 }
 
-.nextButton {
-    display: flex;
-    justify-content: center;
-}
-
-button:disabled, button[disabled] {
-    background-color: var(--button-disabled-color) !important;
-    cursor: default !important;
-}
-
-#button {
-    color: var(--font-color);
-    font-weight: bold;
-    font-size: 18px;
-    background-color: var(--main-color);
-    padding: 10px;
-    border: 0;
-    border-radius: 10px;
+#quiz {
     margin-bottom: 80px;
-    cursor: pointer;
 }
 
+/* Timebar
+    Source: https://css-tricks.com/timer-bars-in-css-with-custom-properties/ */
+.round-time-bar {
+    margin: 1rem;
+    overflow: hidden;
+}
+.round-time-bar div {
+    height: 5px;
+    animation: roundtime calc(var(--duration) * 1s) steps(var(--duration))
+    forwards;
+    transform-origin: left center;
+    background: var(--main-color);
+}
+.round-time-bar div {
+    animation: roundtime calc(var(--duration) * 1s) linear forwards;
+}
+@keyframes roundtime {
+    to {
+        /* More performant than `width` */
+        transform: scaleX(0);
+    }
+}
+
+/* Form */
+.grid-container {
+    margin-bottom: 35px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+}
 input {
     display: none
 }
-
 label {
     display: block;
     padding: 20px;
@@ -81,18 +92,30 @@ label {
     border-radius: 20px;
     cursor: pointer;
 }
-
 input[type=radio]:checked + label {
     background-color: var(--main-color);
     color: var(--font-color);
     border-color: var(--main-color);
 }
 
-.grid-container {
-    margin-bottom: 35px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 15px;
+/* Button */
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+}
+#button {
+    color: var(--font-color);
+    font-weight: bold;
+    font-size: 18px;
+    background-color: var(--main-color);
+    padding: 10px;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+button:disabled, button[disabled] {
+    background-color: var(--button-disabled-color) !important;
+    cursor: default !important;
 }
 
 .foot > p {
