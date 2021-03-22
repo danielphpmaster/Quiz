@@ -1,11 +1,18 @@
 let questNumber = -1;
 let points = 0;
 let selectedAnswer;
-var timeOut;
-var quests;
+let timeOut;
+let quests;
 let length;
+let startTime;
+let endTime;
+let tempPoints;
+let timeUsed;
+let maxTime;
+const timePerQuestion = 5000;
 
 function fetchQuestions() {
+    startTime = Date.now();
     return fetch('questions.json')
         .then(res => res.json())
         .then(function(data) {
@@ -20,11 +27,11 @@ function enableButton() {
 }
 
 function calculatePoints() {
-    var radios = document.getElementsByName('antwort');
+    let radios = document.getElementsByName('antwort');
 
     clearTimeout(timeOut);
 
-    for (var i = 0, length = radios.length; i < length; i++) {
+    for (let i = 0, length = radios.length; i < length; i++) {
         if (radios[i].checked) {
             selectedAnswer = i;
             radios[i].checked = false;
@@ -54,7 +61,7 @@ function fillQuestions() {
 
         timer();
     } else {
-        endScreen("Finished!");
+        endScreen("Finished!", 1);
     }
 }
 
@@ -70,13 +77,17 @@ function timeBar() {
 
 function timer() {
     timeOut = setTimeout(function () {
-        endScreen("Time is over!")
-    }, 5000);
+        endScreen("Time is over!", 0.5)
+    }, timePerQuestion);
 }
 
-function endScreen(message) {
+function endScreen(message, timePenalty) {
+    endTime = Date.now();
+    timeUsed = endTime-startTime;
+    maxTime = quests.length*timePerQuestion;
+    tempPoints = Math.floor((points*(maxTime-timeUsed))/100*timePenalty);
     document.getElementById("question").innerHTML = "Game over!";
-    document.getElementById("quiz").innerHTML = "<h2>" + message + "</h2><p>You achieved " + points + " point(s).</p><div class='buttonContainer'</div><button id='button' onclick='window.location.reload();'>Play again</button>";
+    document.getElementById("quiz").innerHTML = "<h2>" + message + "</h2><p>You achieved " + tempPoints + " point(s).</p><div class='buttonContainer'</div><button id='button' onclick='window.location.reload();'>Play again</button>";
 }
 
 function toggleDarkMode() {
